@@ -15,7 +15,7 @@ while page_count < 309 do
 
   page_count += 1
   puts "Scraping page #{page_count}"
-  
+
   url = "https://www.skatevideosite.com/category/skatevideos/page/#{page_count}"
 end
 
