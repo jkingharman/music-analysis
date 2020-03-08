@@ -2,6 +2,7 @@
 require 'nokogiri'
 require 'mechanize'
 require 'pry'
+require 'csv'
 
 total_page_count = 66
 page_count = 1
@@ -37,4 +38,4 @@ links.each do |l|
   end
 end
 
-CSV.open("videos.csv", "wb") {|csv| vid_hash.to_a.each {|elem| csv << elem } }
+CSV.open("videos.csv", "ab") {|csv| vid_hash.to_a.each {|elem| csv << elem } }
