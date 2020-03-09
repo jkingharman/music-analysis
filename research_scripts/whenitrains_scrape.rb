@@ -26,15 +26,22 @@ noko.css("tbody").children.each do |tr|
   year = vid_data.children.select {|td| td.text.match?(/[0-9]{4}/) }
   year = year unless year.empty?
 
-  vid_hash[title] = year.first unless title.empty?
+  skaters = vid_data.children.select {|td| td.text.match?(/- .+/) }
+  skaters = skaters unless skaters.empty?
 
-  vid_hash.transform_values! do |year|
-    if year.nil?
-      "Year unknown"
-    else
-      year
-    end
+  vid_hash[title] = [year.first, [skaters]] unless title.empty?
+end
+
+vid_hash.transform_values! do |val|
+  if val.is_a?(Array)
+    val.flatten.compact.map(&:text)
+  else
+    val.text
   end
 end
+
+# vid_hash.transform_values! do |val|
+#   [val.first, val[1..-1]]
+# end
 
 CSV.open("videos.csv", "ab") {|csv| vid_hash.to_a.each {|elem| csv << elem } }
