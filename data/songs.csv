@@ -279,8 +279,8 @@ video_id,artist,title
 125, poem by, Spine Poems
 125, Foxface & Rody Gorman,Dreamcatcher
 125, The Jam,That’s Entertainment
-125, beats by Marcus Seiji Knavs
-125, beats by Richard Houghten
+125, Marcus Seiji Knavs,beats
+125, Richard Houghten,beats
 125, Wang Chung,Everybody Have Fun Tonight
 125, Red Feathers,Eyes Under Wool
 125, Bob Dylan,Subterranean Homesick Blues
@@ -333,7 +333,7 @@ video_id,artist,title
 202, Only Fools & Horses,Closing Theme
 202, Circle Jerks,Wild In The Streets
 202, Super U,Break Break Break
-202, Sarabande From Harpsichord Suite
+202, Harpsichord Suite,Sarabande
 202, Diverse Universe,On A Them Of Wight
 202, Wight Boys,Enry On Tick
 202, Sum 1 2cu,Vatican Jet
