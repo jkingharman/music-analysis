@@ -31,10 +31,11 @@ module Scrapers
         candidate_links = scrape_candidate_links
 
         if candidate_links.empty?
-          puts "\n NO candidate links found for: #{@current_video_title} "
+          puts "\n NO candidate links found for: #{@current_video_title}"
+          @browser.screenshot.save("../tmp/screenshots/negative/#{@current_video_title}.png")
         else
           puts "\n Candidate links found for: #{@current_video_title}"
-          # take positive snapshot and call visit link class
+          @browser.screenshot.save("../tmp/screenshots/positive/#{@current_video_title}.png")
         end
 
         if i == BATCH_SIZE
