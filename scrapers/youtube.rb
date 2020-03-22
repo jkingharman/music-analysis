@@ -7,7 +7,7 @@ require 'watir-nokogiri'
 require 'webdrivers'
 
 module Scrapers
-  class Youtube
+  class YoutubeSearch
     BASE_URL = "https://www.youtube.com/results?search_query="
     UK_PREFIX = "UK skateboard video"
 
@@ -68,4 +68,4 @@ module Scrapers
   end
 end
 
-Scrapers::Youtube.new.call
+Scrapers::YoutubeSearch.new.call
