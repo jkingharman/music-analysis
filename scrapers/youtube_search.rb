@@ -1,6 +1,7 @@
 require "csv"
 require "pry"
 require "fuzzy_match"
+require_relative "youtube_music_scrape.rb"
 
 require 'watir'
 require 'watir-nokogiri'
@@ -32,10 +33,12 @@ module Scrapers
 
         if candidate_links.empty?
           puts "\n NO candidate links found for: #{@current_video_title}"
-          @browser.screenshot.save("../tmp/screenshots/negative/#{@current_video_title}.png")
+          @browser.screenshot.save("../tmp/screenshots/search/negative/#{@current_video_title}.png")
         else
           puts "\n Candidate links found for: #{@current_video_title}"
-          @browser.screenshot.save("../tmp/screenshots/positive/#{@current_video_title}.png")
+          @browser.screenshot.save("../tmp/screenshots/search/positive/#{@current_video_title}.png")
+
+          Scrapers::YoutubeMusicScrape.new.call(candidate_links)
         end
 
         if i == BATCH_SIZE
